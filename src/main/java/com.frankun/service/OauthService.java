@@ -8,5 +8,7 @@ import com.frankun.domain.oauth.OauthClientDetails;
  * @author frankun
  */
 public interface OauthService {
+
     OauthClientDetails loadOauthClientDetails(String clientId);
+
 }
