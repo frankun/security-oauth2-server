@@ -30,7 +30,7 @@ public class User extends BaseDomain{
 
     private Date lastLoginTime;
 
-    private List<Privilege> privileges = new ArrayList<>();
+    private List<Privilege> privileges = new ArrayList<Privilege>();
 
     public User(){
     }
