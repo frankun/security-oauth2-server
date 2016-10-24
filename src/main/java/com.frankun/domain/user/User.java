@@ -9,6 +9,8 @@ import java.util.List;
 /**
  * 2016/10/13
  *
+ * 用户实体类
+ *
  * @author frankun
  */
 public class User extends BaseDomain{
