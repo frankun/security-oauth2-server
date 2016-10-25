@@ -117,7 +117,7 @@
     <!--contextConfigLocation -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:spring/*.xml</param-value>
+        <param-value>classpath:spring/cache.xml,classpath:spring/context.xml,classpath:spring/security.xml, classpath:spring/transaction.xml</param-value>
     </context-param>
     <context-param>
         <param-name>log4jConfigLocation</param-name>
@@ -145,12 +145,12 @@
     -->
     <!--mvc-->
     <servlet>
-        <servlet-name>kun</servlet-name>
+        <servlet-name>frankun</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <load-on-startup>2</load-on-startup>
     </servlet>
     <servlet-mapping>
-        <servlet-name>kun</servlet-name>
+        <servlet-name>frankun</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
