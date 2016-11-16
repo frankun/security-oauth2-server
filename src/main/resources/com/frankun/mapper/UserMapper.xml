@@ -3,7 +3,7 @@
 <mapper namespace = "com.frankun.dao.UserMapper">
 
     <select id="findByUsername" parameterType="String" resultType="com.frankun.domain.user.User">
-        SELECT * FROM user_ WHERE username = #{username};
+        SELECT * FROM user_ WHERE username = #{username}
     </select>
 
 </mapper>
