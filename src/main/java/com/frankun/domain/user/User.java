@@ -1,6 +1,6 @@
 package com.frankun.domain.user;
 
-import com.frankun.domain.BaseDomain;
+import com.frankun.domain.base.BaseDomain;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

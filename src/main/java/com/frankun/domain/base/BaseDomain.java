@@ -1,4 +1,4 @@
-package com.frankun.domain;
+package com.frankun.domain.base;
 
 import com.frankun.infrastructure.GuidGenerator;
 import com.frankun.infrastructure.utils.DateUtils;
