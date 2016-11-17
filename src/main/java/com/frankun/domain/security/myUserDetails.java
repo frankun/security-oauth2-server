@@ -17,9 +17,9 @@ import java.util.List;
  */
 public class myUserDetails implements UserDetails {
 
-    private static final long serialVersionUID = 1L;
-
-    protected static final String ROLE_PREFIX = "ROLE_";
+	private static final long serialVersionUID = -5443697289439921152L;
+	
+	protected static final String ROLE_PREFIX = "ROLE_";
     protected static final GrantedAuthority DEFAULT_USER_ROLE = new SimpleGrantedAuthority(ROLE_PREFIX + Privilege.USER.name());
 
     protected User user;
@@ -54,32 +54,43 @@ public class myUserDetails implements UserDetails {
      *
      * @return Collection of GrantedAuthority
      */
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+    @Override
+    public Collection<GrantedAuthority> getAuthorities() {
+        return this.grantedAuthorities;
     }
 
+    @Override
     public String getPassword() {
-        return null;
+        return user.password();
     }
 
+    @Override
     public String getUsername() {
-        return null;
+        return user.username();
     }
 
+    @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
+    @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
+    @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
+    @Override
     public boolean isEnabled() {
-        return false;
+        return true;
+    }
+
+    public User user() {
+        return user;
     }
 
     @Override

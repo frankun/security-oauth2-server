@@ -1,8 +1,3 @@
-<%--
- *
- * @author frankun
---%>
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML>
@@ -13,8 +8,8 @@
 
 </head>
 <body>
-<h2>Spring Security&Oauth2
-    <small class="badge" title="Version">0.5</small>
+<h2>Spring Security Oauth2 Server
+    <small class="badge" title="Version">beta</small>
 </h2>
 
 <p>

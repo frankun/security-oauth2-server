@@ -1,6 +1,6 @@
 package com.frankun.service;
 
-import com.frankun.domain.oauth.OauthClientDetails;
+import com.frankun.domain.dto.OauthClientDetailsDto;
 
 /**
  * 2016/10/12
@@ -9,6 +9,6 @@ import com.frankun.domain.oauth.OauthClientDetails;
  */
 public interface OauthService {
 
-    OauthClientDetails loadOauthClientDetails(String clientId);
+    OauthClientDetailsDto loadOauthClientDetails(String clientId);
 
 }
