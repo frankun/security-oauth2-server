@@ -2,8 +2,56 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace = "com.frankun.dao.OauthMapper">
 
+    <sql id="oauthClientDetailsColumns">
+        a.client_id AS "clientId",
+        a.resource_ids AS "resourceIds",
+        a.client_secret AS "clientSecret",
+        a.scope AS "scope",
+        a.authorized_grant_types AS "authorizedGrantTypes",
+        a.web_server_redirect_uri AS "webServerRedirectUri",
+        a.authorities AS "authorities",
+        a.access_token_validity AS "accessTokenValidity",
+        a.refresh_token_validity AS "refreshTokenValidity",
+        a.additional_information AS "additonalInformaiton",
+        a.create_time AS "createTime",
+        a.archived AS "archived",
+        a.trusted AS "trusted",
+        a.autoapprove AS "autoapprove"
+    </sql>
+
     <select id="findAllClientDetails" resultType="com.frankun.domain.oauth.OauthClientDetails">
-        SELECT * FROM oauth_client_details ORDER BY create_time DESC
+        SELECT
+            <include refid="oauthClientDetailsColumns"/>
+        FROM oauth_client_details a
+        ORDER BY create_time DESC
     </select>
+
+    <insert id="saveOauthClientDetails">
+        INSERT INTO oauth_client_details(
+            client_id,
+            resource_ids,
+            client_secret,
+            scope,
+            authorized_grant_types,
+            web_server_redirect_uri,
+		    authorities,
+		    access_token_validity,
+		    refresh_token_validity,
+		    additional_information,
+		    trusted
+        )VALUES(
+            #{clientId},
+            #{resourceIds},
+            #{clientSecret},
+            #{scope},
+            #{authorizedGrantTypes},
+            #{webServerRedirectUri},
+            #{authorities},
+            #{accessTokenValidity},
+            #{refreshTokenValidity},
+            #{additionalInformation},
+            #{trusted}
+        )
+    </insert>
 
 </mapper>
