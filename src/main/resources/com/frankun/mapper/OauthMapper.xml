@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "com.frankun.dao.OauthMapper">
+
+    <select id="findAllClientDetails" resultType="com.frankun.domain.oauth.OauthClientDetails">
+        SELECT * FROM oauth_client_details ORDER BY create_time DESC
+    </select>
+
+</mapper>

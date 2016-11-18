@@ -44,7 +44,7 @@ public class OauthClientDetailsDtoValidator implements Validator {
             errors.rejectValue("client_id", null, "client_id 长度至少5位");
             return;
         }
-        OauthClientDetailsDto dto = oauthService.loadOauthClientDetails(clientId);
+        OauthClientDetailsDto dto = oauthService.loadOauthClientDetailsDto(clientId);
         if (dto != null){
             errors.rejectValue("client_id", null, "client_id [" + clientId + "] 已存在");
         }

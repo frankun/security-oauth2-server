@@ -35,7 +35,7 @@
 
 <div>
     <ul class="list-group">
-        <c:forEach items="${clientDetailsDtoList}" var="cli">
+        <c:forEach items="${oauthClientDetailsDtoList}" var="cli">
             <li class="list-group-item">
                 <div class="pull-right">
                     <c:if test="${not cli.archived}">
