@@ -61,4 +61,10 @@
         )
     </insert>
 
+    <update id="updateOauthClientDetailsArchive" parameterType="String">
+        UPDATE oauth_client_details
+        SET archived = #{archived}
+        WHERE client_id = #{clientId}
+    </update>
+
 </mapper>

@@ -62,4 +62,10 @@ public class ClientDetailsController {
         model.addAttribute("clientDetailsDto", clientDetailsDto);
         return "clientdetails/test_client";
     }
+
+    @RequestMapping("archive_client/{clientId}")
+    public String archivedClient(@PathVariable("clientId") String clientId){
+        oauthService.updateOauthClientDetailsArchive(clientId);
+        return "redirect:../client_details";
+    }
 }

@@ -2,6 +2,7 @@ package com.frankun.dao;
 
 import com.frankun.dao.base.BaseMapper;
 import com.frankun.domain.oauth.OauthClientDetails;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -16,4 +17,6 @@ public interface OauthMapper extends BaseMapper{
     List<OauthClientDetails> findAllClientDetails();
 
     void saveOauthClientDetails(OauthClientDetails oauthClientDetails);
+
+    void updateOauthClientDetailsArchive(@Param("clientId") String clientId, @Param("archived") boolean archived);
 }
