@@ -19,6 +19,13 @@
         a.autoapprove AS "autoapprove"
     </sql>
 
+    <select id="findClientDetails" resultType="com.frankun.domain.oauth.OauthClientDetails">
+        SELECT
+            <include refid="oauthClientDetailsColumns"/>
+        FROM oauth_client_details a
+        WHERE client_id = #{clientId}
+    </select>
+
     <select id="findAllClientDetails" resultType="com.frankun.domain.oauth.OauthClientDetails">
         SELECT
             <include refid="oauthClientDetailsColumns"/>

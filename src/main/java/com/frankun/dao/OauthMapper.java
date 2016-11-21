@@ -11,6 +11,8 @@ import java.util.List;
  */
 public interface OauthMapper extends BaseMapper{
 
+    OauthClientDetails findClientDetails(String clientId);
+
     List<OauthClientDetails> findAllClientDetails();
 
     void saveOauthClientDetails(OauthClientDetails oauthClientDetails);

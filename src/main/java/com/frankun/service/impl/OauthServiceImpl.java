@@ -23,7 +23,8 @@ public class OauthServiceImpl implements OauthService{
 
     @Override
     public OauthClientDetailsDto loadOauthClientDetailsDto(String clientId) {
-        return null;
+        final OauthClientDetails oauthClientDetails = oauthMapper.findClientDetails(clientId);
+        return oauthClientDetails != null ? new OauthClientDetailsDto(oauthClientDetails) : null;
     }
 
     @Override
