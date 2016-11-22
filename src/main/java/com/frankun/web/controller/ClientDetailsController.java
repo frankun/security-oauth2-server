@@ -2,7 +2,7 @@ package com.frankun.web.controller;
 
 import com.frankun.domain.dto.OauthClientDetailsDto;
 import com.frankun.service.OauthService;
-import com.frankun.web.oauth.OauthClientDetailsDtoValidator;
+import com.frankun.web.validator.OauthClientDetailsDtoValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,12 +40,23 @@ public class ClientDetailsController {
         return "clientdetails/client_details";
     }
 
+    /**
+     * 跳转到注册页面
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/register_client", method = RequestMethod.GET)
     public String registerClient(Model model){
         model.addAttribute("formDto", new OauthClientDetailsDto());
         return "clientdetails/register_client";
     }
 
+    /**
+     * 提交注册信息
+     * @param formDto
+     * @param result
+     * @return
+     */
     @RequestMapping(value = "/register_client", method = RequestMethod.POST)
     public String submitRegisterClient(@ModelAttribute("formDto") OauthClientDetailsDto formDto, BindingResult result){
         oauthClientDetailsDtoValidator.validate(formDto, result);
@@ -53,9 +64,15 @@ public class ClientDetailsController {
             return "clientdetails/register_client";
         }
         oauthService.registerClientDetails(formDto);
-        return "redirect:client_detials";
+        return "redirect:client_details";
     }
 
+    /**
+     * 进入客户端测试页面
+     * @param clientId
+     * @param model
+     * @return
+     */
     @RequestMapping("test_client/{clientId}")
     public String testClient(@PathVariable("clientId") String clientId, Model model){
         OauthClientDetailsDto clientDetailsDto = oauthService.loadOauthClientDetailsDto(clientId);
@@ -63,6 +80,11 @@ public class ClientDetailsController {
         return "clientdetails/test_client";
     }
 
+    /**
+     * 激活archive
+     * @param clientId
+     * @return
+     */
     @RequestMapping("archive_client/{clientId}")
     public String archivedClient(@PathVariable("clientId") String clientId){
         oauthService.updateOauthClientDetailsArchive(clientId);

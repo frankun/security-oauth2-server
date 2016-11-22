@@ -13,8 +13,12 @@ import java.util.List;
 public interface UserMapper extends BaseMapper{
 
     User findByGuid(String guid);
+
     void saveUser(User user);
+
     void updateUser(User user);
+
     User findByUsername(String username);
+
     List<User> findUserByUsername(String username);
 }

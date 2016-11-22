@@ -1,4 +1,4 @@
-package com.frankun.web.oauth;
+package com.frankun.web.validator;
 
 import com.frankun.domain.dto.OauthClientDetailsDto;
 import com.frankun.service.OauthService;
