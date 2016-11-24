@@ -3,15 +3,15 @@
 <mapper namespace = "com.frankun.dao.UserMapper">
 
     <sql id="userColumns">
-        a.guid = #{guid}
-        a.create_time = #{createTime}
-        a.archived =#{archived}
-        a.email = #{email}
-        a.password = #{password}
-        a.phone = #{phone}
-        a.username = #{username}
-        a.default_user = #{defaultUser}
-        a.last_login_time = #{lastLoginTime}
+        a.guid AS "guid",
+        a.create_time AS "createTime",
+        a.archived AS "archived",
+        a.email AS "email",
+        a.password AS "password",
+        a.phone AS "phone",
+        a.username AS "username",
+        a.default_user AS "defaultUser",
+        a.last_login_time AS "lastLoginTime"
     </sql>
 
     <select id="findByUsername" parameterType="String" resultType="com.frankun.domain.user.User">
@@ -21,9 +21,14 @@
         WHERE username = #{username}
     </select>
 
-    <select id="findByUsername" parameterType="String" resultType="java.util.List">
-        select * from user_ where 1=1
-        <if test="loginName != null and loginName != '' "> and login_name like concat('%',#{loginName},'%')</if>
+    <select id="searchUserByUsername" parameterType="String" resultType="com.frankun.domain.user.User">
+        SELECT
+        <include refid="userColumns"/>
+        FROM user_ a
+        WHERE 1=1
+          <if test="username != null and username != ''">
+              AND a.username LIKE concat('%',#{username},'%')
+          </if>
     </select>
     
 </mapper>

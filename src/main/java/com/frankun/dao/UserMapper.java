@@ -2,6 +2,7 @@ package com.frankun.dao;
 
 import com.frankun.dao.base.BaseMapper;
 import com.frankun.domain.user.User;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -20,5 +21,5 @@ public interface UserMapper extends BaseMapper{
 
     User findByUsername(String username);
 
-    List<User> findUserByUsername(String username);
+    List<User> searchUserByUsername(@Param("username") String username);
 }

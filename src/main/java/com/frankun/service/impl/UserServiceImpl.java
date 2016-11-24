@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public UserOverviewDto loadUserOverviewDto(UserOverviewDto overviewDto) {
-        List<User> users = userMapper.findUserByUsername(overviewDto.getUsername());
+        List<User> users = userMapper.searchUserByUsername(overviewDto.getUsername());
         overviewDto.setUserDtos(UserDto.toDtos(users));
         return overviewDto;
     }
