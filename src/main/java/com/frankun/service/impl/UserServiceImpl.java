@@ -2,6 +2,7 @@ package com.frankun.service.impl;
 
 import com.frankun.dao.UserMapper;
 import com.frankun.domain.dto.UserDto;
+import com.frankun.domain.dto.UserFormDto;
 import com.frankun.domain.dto.UserOverviewDto;
 import com.frankun.domain.security.myUserDetails;
 import com.frankun.domain.user.User;
@@ -34,6 +35,13 @@ public class UserServiceImpl implements UserService{
         List<User> users = userMapper.searchUserByUsername(overviewDto.getUsername());
         overviewDto.setUserDtos(UserDto.toDtos(users));
         return overviewDto;
+    }
+
+    @Override
+    public String saveUserFormDto(UserFormDto formDto) {
+        User user = formDto.newUser();
+        userMapper.saveUser(user);
+        return user.getGuid();
     }
 
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
