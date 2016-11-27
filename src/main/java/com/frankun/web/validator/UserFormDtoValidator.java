@@ -5,6 +5,7 @@ import com.frankun.domain.user.Privilege;
 import com.frankun.service.UserService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
@@ -14,6 +15,7 @@ import java.util.List;
  * 2016/11/21
  * @author frankun
  */
+@Component
 public class UserFormDtoValidator implements Validator{
 
     @Autowired

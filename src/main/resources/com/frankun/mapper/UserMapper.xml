@@ -17,8 +17,8 @@
     <select id="findByUsername" parameterType="String" resultType="com.frankun.domain.user.User">
         SELECT
             <include refid="userColumns"/>
-        FROM user_
-        WHERE username = #{username}
+        FROM user_ a
+        WHERE a.username = #{username}
     </select>
 
     <select id="searchUserByUsername" parameterType="String" resultType="com.frankun.domain.user.User">
@@ -32,34 +32,34 @@
     </select>
 
     <insert id="saveUser" parameterType="com.frankun.domain.user.User">
-        INSERT INTO user_ a
+        INSERT INTO user_
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="guid != null">
-                a.guid,
+                guid,
             </if>
             <if test="createTime != null">
-                a.create_time,
+                create_time,
             </if>
             <if test="archived != null">
-                a.archived,
+                archived,
             </if>
             <if test="email != null">
-                a.email,
+                email,
             </if>
             <if test="password != null">
-                a.password,
+                password,
             </if>
             <if test="phone != null">
-                a.phone,
+                phone,
             </if>
             <if test="username != null">
-                a.username,
+                username,
             </if>
             <if test="defaultUser != null">
-                a.default_user,
+                default_user,
             </if>
             <if test="lastLoginTime != null">
-                a.last_login_time
+                last_login_time
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -67,7 +67,7 @@
                 #{guid,jdbcType=VARCHAR},
             </if>
             <if test="createTime != null">
-                #{create_time},
+                NOW(),
             </if>
             <if test="archived != null">
                 #{archived,jdbcType=TINYINT},
@@ -77,6 +77,9 @@
             </if>
             <if test="password != null">
                 #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="phone != null">
+                #{phone,jdbcType=VARCHAR},
             </if>
             <if test="username != null">
                 #{username,jdbcType=VARCHAR},
