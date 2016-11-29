@@ -21,7 +21,7 @@
 
     <p>
         针对不同的<code>grant_type</code>提供不同的测试URL,
-        完整的Oauth测试请访问<a href="http://git.oschina.net/mkk/spring-oauth-client" target="_blank">spring-oauth-client</a>项目.
+        完整的Oauth测试请访问<a href="http://git.oschina.net/mkk/spring-oauth-client" target="_blank">security-oauth2-server</a>项目.
     </p>
 
     <div ng-controller="TestClientCtrl">
@@ -33,7 +33,7 @@
                     <ol>
                         <li>
                             <p>
-                                <code>从 spring-oauth-server获取 'code'</code>
+                                <code>从 security-oauth2-server获取 'code'</code>
                                 <br/>
                                 redirect_uri: <input type="text" value="" ng-model="redirectUri" size="70"
                                                      required="required"/>
@@ -163,7 +163,7 @@
 
         <c:if test="${empty clientDetailsDto.webServerRedirectUri}" var="eptRedUri">
         $scope.implicitRedirectUri = location.href;
-        $scope.redirectUri = "http://localhost:8080/spring-oauth-server/unity/dashboard";
+        $scope.redirectUri = "http://localhost:8080/unity/dashboard";
         </c:if>
         <c:if test="${not eptRedUri}">
         $scope.implicitRedirectUri = "${clientDetailsDto.webServerRedirectUri}";
